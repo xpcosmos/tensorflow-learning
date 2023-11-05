@@ -39,7 +39,7 @@ print(model.summary())
 # from_logits is true because the NN doesn't have SoftMax layer
 loss = keras.losses.SparseCategoricalCrossentropy(from_logits=True)
 # Adam optimization is a stochastic gradient descent method that is based on adaptive estimation of first-order and second-order moments.
-optimizer = keras.optimizers.Adam(lr=0.001) # lr = Learning Rate
+optimizer = keras.optimizers.legacy.Adam(learning_rate=0.001) # New Adam runs slowly in Mac M1/M2
 metrics = ['accuracy']
 
 model.compile(loss=loss, metrics=metrics, optimizer=optimizer)

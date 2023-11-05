@@ -75,5 +75,10 @@ predictions = tf.nn.softmax(predictions)
 
 pred0 = predictions[0]
 print(pred0)
+plt.subplot(1, 1, 1)
+plt.imshow(x_test[0], cmap='gray')
 label0 = np.argmax(pred0)
-print(label0, '\n')
+plt.text(0, -1, f'Valor predito: {label0}', fontdict={'size':10})
+plt.xticks([])
+plt.yticks([])
+plt.show()

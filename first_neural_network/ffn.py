@@ -13,10 +13,10 @@ print(x_train.shape, y_train.shape)
 # Normalize data
 x_train, x_test = x_train / 255.0, x_test / 255.0
 
-for i in range(6):
-    plt.subplot(2, 3, i+1)
-    plt.imshow(x_train[i], cmap='gray')
-plt.show()
+# for i in range(6):
+#     plt.subplot(2, 3, i+1)
+#     plt.imshow(x_train[i], cmap='gray')
+# plt.show()
 
 # Method 1
 model = keras.Sequential([
@@ -52,5 +52,28 @@ EPOCHS = 5
 # Fitting model to the train data
 model.fit(x_train, y_train, batch_size=BATCH_SIZE, epochs=EPOCHS, shuffle=True, verbose=1) 
 
-
+# Evaluating model
 model.evaluate(x_test, y_test, batch_size=BATCH_SIZE, verbose=2)
+
+# Predicting: Method 1
+probability_model = keras.models.Sequential([
+    model,
+    keras.layers.Softmax()
+])
+
+predictions = probability_model(x_test)
+
+pred0 = predictions[0]
+print(pred0)
+label0 = np.argmax(pred0)
+print(label0, '\n')
+
+# Method 2
+
+predictions = model(x_test)
+predictions = tf.nn.softmax(predictions)
+
+pred0 = predictions[0]
+print(pred0)
+label0 = np.argmax(pred0)
+print(label0, '\n')

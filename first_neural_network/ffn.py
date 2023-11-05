@@ -51,3 +51,6 @@ EPOCHS = 5
 
 # Fitting model to the train data
 model.fit(x_train, y_train, batch_size=BATCH_SIZE, epochs=EPOCHS, shuffle=True, verbose=1) 
+
+
+model.evaluate(x_test, y_test, batch_size=BATCH_SIZE, verbose=2)

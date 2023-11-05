@@ -59,3 +59,11 @@ x_uniform = tf.random.uniform((3,4))
 print(x_uniform)
 x_reshaped_1 = tf.reshape(x_uniform, (4, 3))
 print(x_reshaped_1)
+
+# To numpy
+x_numpy = x_uniform.numpy()
+print(x_numpy, type(x_numpy), sep='\n')
+
+# Numpy to tensor 
+x_tensor = tf.convert_to_tensor(x_numpy)
+print(x_tensor, type(x_tensor), sep='\n')

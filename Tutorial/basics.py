@@ -29,3 +29,21 @@ add1 = tf.add(x_normal_dist, x_cast)
 add2 = x_normal_dist + x_cast
 print(add1)
 print(add2)
+
+# Dot product
+dot_product = tf.tensordot(x_cast, x_normal_dist, axes=1)
+print(dot_product)
+
+# Matrix multiplication
+# -----
+mat1 = tf.random.normal((2, 4), dtype=tf.float32)
+mat2 = tf.random.normal((4, 3), dtype=tf.float32)
+
+# Method 1
+matmul = tf.matmul(mat1, mat2)
+print(matmul)
+
+# Method 2
+matmul = mat1 @ mat2
+print(matmul)
+# ---- 

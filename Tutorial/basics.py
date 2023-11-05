@@ -47,3 +47,15 @@ print(matmul)
 matmul = mat1 @ mat2
 print(matmul)
 # ---- 
+print('\n')
+
+# Slicing & Indexing
+x_slice = tf.random.normal((2, 3))
+print(x_slice[0])
+print(x_slice[:, 1:])
+
+# Reshape
+x_uniform = tf.random.uniform((3,4))
+print(x_uniform)
+x_reshaped_1 = tf.reshape(x_uniform, (4, 3))
+print(x_reshaped_1)
